@@ -121,6 +121,7 @@ class ALSAlgorithm(val ap: ALSAlgorithmParams)
         val topItemScores: Array[ItemScore] = ratings
         .toArray
         .sortBy(_.rating)
+        .reverse
         .take(query.num)
         .map { rating => ItemScore(
           model.itemStringIntMap.inverse(rating.product),
